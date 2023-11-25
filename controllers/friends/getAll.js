@@ -10,7 +10,10 @@ const getAll = async (req, res, next) => {
 	if (!result.length) {
 		return res.status(200).json({ messedge: "No results were found for your request" });
 	}
-	res.status(200).json({ result, quantity: result.length });
+	res
+		.status(200)
+		.json({ code: 200, messedge: "Ok", qty: result.length, data: { result } });
 };
+
 
 module.exports = getAll;
